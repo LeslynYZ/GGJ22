@@ -111,7 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3aaab590ba04542850b401fda90bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   highlightTile: {fileID: 11400000, guid: d65c7a23f00b6024baf0c6fc8aa629e8, type: 2}
   highlightMap: {fileID: 0}
   selectedTile: {fileID: 0}
   tileMap: {fileID: 0}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 256

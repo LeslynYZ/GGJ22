@@ -25,14 +25,13 @@ public class PlayerAbility : MonoBehaviour
 
         if(playerNumber == 0)
         {
-
             Debug.Log("Destroy");
         interactCursor.Destroy();
         }
         else if(playerNumber ==1)
         {
             Debug.Log("Create");
-            //CREATE
+            interactCursor.Create();
         }
     }
     public void Look()
@@ -41,9 +40,8 @@ public class PlayerAbility : MonoBehaviour
        playerInteractCircle.transform.eulerAngles = 
        new Vector3( 0,0, Mathf.Atan2(-lookValue.x, lookValue.y) * 180 / Mathf.PI);
 
-       var lookLength = (Mathf.Abs(playerInput.actions.FindAction("Look").ReadValue<Vector2>().x) -
-         Mathf.Abs(playerInput.actions.FindAction("Look").ReadValue<Vector2>().y)) * 5;
+        var lookLength = Mathf.Clamp01(new Vector2(lookValue.x, lookValue.y).magnitude);
 
-       interactCursor.transform.localPosition = new Vector2(0, Mathf.Abs(lookLength));
+        interactCursor.transform.localPosition = new Vector2(0, Mathf.Abs(lookLength * 5));
     }
 }
